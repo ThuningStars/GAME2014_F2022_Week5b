@@ -1,4 +1,0 @@
-repository "GAME2014_F2022_Week1b@thuningstars@cloud.cn"
-  path "/"
-    br "/main"
-    co "/main"
