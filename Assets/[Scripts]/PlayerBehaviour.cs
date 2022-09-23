@@ -6,19 +6,38 @@ public class PlayerBehaviour : MonoBehaviour
 {
     [SerializeField]
     public float speed = 2.0f;
+    public Boundary boundary;
+    public float verticalPosition;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-        float x = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
-        float y = Input.GetAxis("Vertical") * Time.deltaTime * speed;
+        Move();
 
-        transform.position = new Vector2(transform.position.x + x, transform.position.y + y);
     }
+
+    public void Move()
+    {
+        float x = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
+
+        transform.position += new Vector3(x, 0.0f, 0.0f);
+
+        // check bounds
+        var clampedPosition = Mathf.Clamp(transform.position.x, boundary.min, boundary.max);
+        transform.position = new Vector2(clampedPosition, verticalPosition);
+
+    }
+
+    //public void CheckBounds()
+    //{
+    //    if(transform.position.x > boundary.max)
+    //    {
+    //        transform.position = new Vector2(boundary.max, verticalPosition);
+    //    }
+    //    if (transform.position.x < boundary.min)
+    //    {
+    //        transform.position = new Vector2(boundary.min, verticalPosition);
+    //    }
+    //}
 }
