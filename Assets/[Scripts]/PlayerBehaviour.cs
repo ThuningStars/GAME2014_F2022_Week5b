@@ -8,6 +8,7 @@ public class PlayerBehaviour : MonoBehaviour
     public float speed = 2.0f;
     public Boundary boundary;
     public float verticalPosition;
+    public float verticalSpeed = 10.0f;
 
     public Camera camera;
 
@@ -27,7 +28,8 @@ public class PlayerBehaviour : MonoBehaviour
     {
         foreach(var touch in Input.touches)
         {
-            transform.position = camera.ScreenToWorldPoint(touch.position);
+            var destination = camera.ScreenToWorldPoint(touch.position);
+            transform.position =Vector2.Lerp(transform.position, destination, verticalSpeed * Time.deltaTime);
         }
     }
 

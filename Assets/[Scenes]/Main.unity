@@ -322,6 +322,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background Stars
       objectReference: {fileID: 0}
+    - target: {fileID: 6022914438829701086, guid: 0b6e5a923511bde48af20f730fc66167, type: 3}
+      propertyPath: m_Color.b
+      value: 0.9704628
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022914438829701086, guid: 0b6e5a923511bde48af20f730fc66167, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022914438829701086, guid: 0b6e5a923511bde48af20f730fc66167, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6022914438829701087, guid: 0b6e5a923511bde48af20f730fc66167, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -377,6 +389,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8757516115389338688, guid: d38176b64929e6349a27a1bce32e3b37, type: 3}
+      propertyPath: verticalSpeed
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8757516115389338689, guid: d38176b64929e6349a27a1bce32e3b37, type: 3}
       propertyPath: m_Color.b
       value: 0
