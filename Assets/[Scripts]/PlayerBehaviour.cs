@@ -10,6 +10,7 @@ public class PlayerBehaviour : MonoBehaviour
     public float verticalPosition;
     public float verticalSpeed = 10.0f;
     public bool usingMobileInput = false;
+    public ScoreManager scoreManager;
 
     public Camera camera;
 
@@ -19,6 +20,8 @@ public class PlayerBehaviour : MonoBehaviour
 
         usingMobileInput = Application.platform == RuntimePlatform.Android || 
                            Application.platform == RuntimePlatform.IPhonePlayer;
+
+        scoreManager = FindObjectOfType<ScoreManager>();
     }
 
     // Update is called once per frame
@@ -34,6 +37,11 @@ public class PlayerBehaviour : MonoBehaviour
         }
 
         Move();
+
+        if(Input.GetKeyDown(KeyCode.K))
+        {
+            scoreManager.AddPoints(10);
+        }
     }
 
     public void Mobilenput()
