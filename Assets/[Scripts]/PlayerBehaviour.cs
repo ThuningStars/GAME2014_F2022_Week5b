@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
+    [Header("Player Properties")]
     [SerializeField]
     public float speed = 2.0f;
     public Boundary boundary;
@@ -11,6 +12,12 @@ public class PlayerBehaviour : MonoBehaviour
     public float verticalSpeed = 10.0f;
     public bool usingMobileInput = false;
     public ScoreManager scoreManager;
+
+    [Header("Bullet Properties")]
+    public Transform bulletSpawnPoint;
+    public GameObject bulletPrefab;
+    public float fireRate = 0.2f;
+    public Transform bulletParent;
 
     public Camera camera;
 
@@ -22,6 +29,8 @@ public class PlayerBehaviour : MonoBehaviour
                            Application.platform == RuntimePlatform.IPhonePlayer;
 
         scoreManager = FindObjectOfType<ScoreManager>();
+
+        InvokeRepeating("FireBullets", 0.0f, fireRate);
     }
 
     // Update is called once per frame
@@ -64,5 +73,10 @@ public class PlayerBehaviour : MonoBehaviour
         // check bounds
         var clampedPosition = Mathf.Clamp(transform.position.x, boundary.min, boundary.max);
         transform.position = new Vector2(clampedPosition, verticalPosition);
+    }
+
+    void FireBullets()
+    {
+        var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity, bulletParent);
     }
 }
