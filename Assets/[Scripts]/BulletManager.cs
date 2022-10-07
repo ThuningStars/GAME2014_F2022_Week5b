@@ -27,6 +27,8 @@ public class BulletManager : MonoBehaviour
         {
             CreateBullet();
         }
+
+        bulletCount = bulletPool.Count;
     }
 
     private void CreateBullet()
